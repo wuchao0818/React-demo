@@ -1,33 +1,111 @@
-.App {
-  text-align: center;
+@import '~antd/dist/antd.css';
+
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background: url('./image/bg.jpg');
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* 登录页面 */
+.login{
+  width: 350px;
+  height: 300px;
+  margin: auto;  
+  position: absolute;  
+  top: 0; 
+  left: 0; 
+  bottom: 0; 
+  right: 0;
+}
+.login .logo_login{
+  position: relative;
+  bottom: 8px;
+}
+.login h2{
+  width:300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.login h2 span{
+  font-size: 28px;
+  margin-left: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+
+
+.app .logo {
+  height: 32px;
+  background: rgba(255,255,255,.2);
+  margin: 16px;
+}
+
+.app .ant-menu-item a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* 用户界面 */
+.userPage{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.userPage .imgGroup{
+  background: rgb(255, 99, 111);
+  text-align: center;
+  width: 200px;
+  height: 200px;
+}
+.userPage .right{
+  flex: 1;
+}
+.imgGroup .userImg{
+  position: relative;
+  top: 20px;
+  width: 100px;
+  height: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 详情界面 */
+.w-e-text-container{
+  height: 100px !important;
 }
+.Activity,.userInfo{
+  padding-left: 100px;
+}
+.Activity .Activity_info{
+  font-size: 14px;
+  text-align: left;
+  padding: 10px;
+}
+.Activity .Activity_info span{
+  display: inline-block;
+  width: 350px;
+}
+.Activity .conclusion{
+  background: #ff6e5c;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0 ;
+}
+
+.Activity .conclusion h2{
+  color: #ffffff;
+}
+
+.query .ant-row{
+  padding-bottom: 10px;
+}
+
+
