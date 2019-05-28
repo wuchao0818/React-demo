@@ -5,11 +5,13 @@ import {
 } from 'antd';
   
 import {
-    Redirect
+    Redirect, withRouter
   } from "react-router-dom";
 
 
 import stroage from '../model/Stroage' 
+
+// import cookie from '../model/Cookie' 
 
 const info = () => {
     message.error('用户名或者密码错误，请重新输入！');
@@ -29,9 +31,11 @@ class LoginForm extends Component {
           if (!err) {
               console.log('Received values of form: ', values);
               if(values.userName === 'admin' && values.password === '123'){
+                // cookie.setCook('cookieKey', JSON.stringify(values));
                   this.setState({
                       login: true
                   })
+
                   stroage.set('login',values) 
               }else{
                  info()
@@ -42,12 +46,16 @@ class LoginForm extends Component {
 
     componentDidMount(){
         let login = stroage.get('login')
+        // let login = cookie.getCook('cookieKey')
         if(login){
             this.setState({
                 login: true
             })
         }
     }
+    
+
+
 
     render() {
         if(this.state.login){

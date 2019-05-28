@@ -30,7 +30,7 @@ class index extends Component {
         this.state = {
             collapsed: false,
             current: '1',
-            openKeys: []
+            openKeys: [],
         };
         props.history.listen(() => {
             let array = window.location.pathname.split('/');
@@ -49,8 +49,9 @@ class index extends Component {
                 this.setState({
                     current: '1',
                 })
-            }
-          })
+            }   
+            
+            })
     }
 
     onCollapse = (collapsed) => {
@@ -68,10 +69,12 @@ class index extends Component {
             this.setState({
                 openKeys: []
             })
-        }
+        }   
     }
 
+
     componentDidMount(){
+        console.log('componentDidMount')
         let array = window.location.pathname.split('/');
         console.log(array)
         if(array[1]){
@@ -87,15 +90,18 @@ class index extends Component {
                 case 'store': this.setState({
                                 current: '6',
                                 openKeys: ['sub2']
-                              });break;
+                                });break;
                 default: break;
             }
         }else {
             this.setState({
                 current: '1',
             })
-        }
+        }     
     }
+
+    
+
 
     render() {
         return (
@@ -106,7 +112,8 @@ class index extends Component {
                 onCollapse={this.onCollapse}
                 >
                 <div className="logo" />
-                <Menu theme="dark" selectedKeys={[this.state.current]} openKeys={this.state.openKeys} mode="inline" className = 'app' onOpenChange={this.onOpenChange}>
+                <Menu theme="dark" selectedKeys={[this.state.current]}
+                openKeys={this.state.openKeys} mode="inline" className = 'app' onOpenChange={this.onOpenChange}>
                     <Menu.Item key="1">
                     <Icon type="pie-chart" />
                     <span>

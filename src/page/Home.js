@@ -10,6 +10,7 @@ require('echarts/lib/chart/bar');
 require('echarts/lib/component/toolbox');
 require('echarts/lib/component/title');
 require('echarts/lib/chart/line');
+require('echarts/lib/chart/pie');
 
 class Home extends Component {
     constructor(props) {
@@ -19,22 +20,22 @@ class Home extends Component {
 
     componentDidMount(){
         var myChartbar = echarts.init(document.getElementById('bar'));
-        // var myChartline = echarts.init(document.getElementById('line'));
+        var myChartpie = echarts.init(document.getElementById('pie'));
         // 绘制图表
         myChartbar.setOption(EchartsOption.barOptions);
-        // myChartline.setOption(EchartsOption.lineOptions);
+        myChartpie.setOption(EchartsOption.pieOptios);
     }
 
     render() {
         return (
             <div className = 'Home'>
                 <Statistic />
-                <div>
+                <div style = {{display: 'flex',marginTop:'30px'}}>
                     <div>
-                        <div id = 'bar' style={{ width: 800, height: 400 }}></div>
+                        <div id = 'bar' style={{ width: 700, height: 400 }}></div>
                     </div>
                     <div>
-                        {/* <div id = 'line' style={{ width: 800, height: 400 }}></div> */}
+                        <div id = 'pie' style={{ width: 500, height: 400 }}></div>
                     </div>
                 </div>
             </div>            

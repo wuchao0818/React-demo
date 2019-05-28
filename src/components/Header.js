@@ -6,6 +6,7 @@ import {
 
 import { Input, Avatar, Button } from 'antd';
 import stroage from '../model/Stroage' 
+// import cookie from '../model/Cookie' 
 
 const Search = Input.Search;
 
@@ -22,6 +23,7 @@ class Header extends Component {
             login: true
         })
         stroage.remove('login')
+        // cookie.removeCooke('cookieKey')
     }
     render() {
         if(this.state.login){

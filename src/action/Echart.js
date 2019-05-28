@@ -2,7 +2,12 @@ import echarts from 'echarts/lib/echarts';
 
  
 export const barOptions = {
-    title: { text: '销售图表' },
+    title: { 
+        text: '销售图表',
+        textStyle: {
+            color: '#67d3e0'
+        } 
+    },
     tooltip: {},
     toolbox: {
         feature: {
@@ -12,9 +17,6 @@ export const barOptions = {
                 icon: {
                     // bar: "image://bar.png"
                 },
-                // iconStyle:{
-                //     color: 'blue'
-                // }
             },
             restore: {show: true},
             
@@ -56,87 +58,50 @@ export const barOptions = {
     }]
 }
 
-// export const  lineOptions = {
-//     title: {
-//         text: '红包活动数据',
-//         subtext: '数据来源：华秉科技-dancer',
-//     },
-//     tooltip: {
-//         trigger: 'axis',
-//     },
-//     //图例名
-//     legend: {
-//         data:['活动人数','分享人数']
-//     },
-//     grid: {
-//         left: '3%',   //图表距边框的距离
-//         right: '4%',
-//         bottom: '3%',
-//         containLabel: true
-//     },
-//     //工具框，可以选择
-//     toolbox: {
-//         feature: {
-//             saveAsImage: {}
-//         }
-//     },
-//     //x轴信息样式
-//     xAxis: {
-//         type: 'category',
-//         boundaryGap: false,
-//         data: ['12-01','12-02','12-03','12-04','12-05','12-05','12-06','12-07','12-08','12-09','12-10','12-11','12-12','12-13'],
-//         //坐标轴颜色
-//         axisLine:{
-//             lineStyle:{
-//                 color:'red'
-//             }
-//         },
-//         //x轴文字旋转
-//         axisLabel:{
-//             rotate:30,
-//             interval:0
-//         },
-//     },
 
-//     yAxis : [
-//         {
-//             type : 'value',
-//             axisLabel : {
-//                 formatter: '{value} 人'
-//             }
-//         }
-//     ],
-//     series: [
-//         //虚线
-//         {
-//             name:'活动人数',
-//             type:'line',
-//             symbolSize:4,   //拐点圆的大小
-//             color:['red'],  //折线条的颜色
-//             data:[1000, 300, 500, 800, 300, 600,500,800, 300, 500, 800, 300, 600,500],
-//             smooth:false,   //关键点，为true是不支持虚线的，实线就用true
-//             itemStyle:{
-//                 normal:{
-//                     lineStyle:{
-//                         width:2,
-//                         type:'dotted'  //'dotted'虚线 'solid'实线
-//                     }
-//                 }
-//             }
-//         },
-//         //实线
-//         {
-//             name:'分享人数',
-//             type:'line',
-//             symbol:'circle',
-//             symbolSize:4,
-//             itemStyle:{
-//                 normal:{
-//                     color:'red',
-//                     borderColor:'red'  //拐点边框颜色
-//                 }
-//             },
-//             data:[220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290, 330, 310]
-//         },
-//     ]
-// }
+export const pieOptios = {
+    title : {
+        text: '用户访问来源',
+        x:'center',
+        textStyle: {
+            color: '#67d3e0'
+        }
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+    },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            label: {
+                normal: {
+                    show: true,
+                    formatter: '{b}:'+'\n'+'{c}({d}%)'
+                }
+            },
+            data:[
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+                {value:135, name:'视频广告'},
+                {value:1548, name:'搜索引擎'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+}
